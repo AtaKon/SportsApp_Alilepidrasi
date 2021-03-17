@@ -1,4 +1,4 @@
-package com.example.sportsapp.data.fragments.add
+package com.example.sportsapp.fragments.add
 
 import android.os.Bundle
 import android.text.Editable
@@ -11,14 +11,14 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.sportsapp.R
-import com.example.sportsapp.data.User
-import com.example.sportsapp.data.UserViewModel
+import com.example.sportsapp.model.User
+import com.example.sportsapp.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.fragment_add.*
 import kotlinx.android.synthetic.main.fragment_add.view.*
 
 
 class AddFragment : Fragment() {
-    private lateinit var mUserViewModel:UserViewModel
+    private lateinit var mUserViewModel: UserViewModel
 
 
     override fun onCreateView(
@@ -44,7 +44,12 @@ class AddFragment : Fragment() {
 
         if(inputCheck(firstName,lastName,age)){
 
-            val user = User(0,firstName,lastName,Integer.parseInt(age.toString()))
+            val user = User(
+                0,
+                firstName,
+                lastName,
+                Integer.parseInt(age.toString())
+            )
 
             mUserViewModel.addUser(user)
 
