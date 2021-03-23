@@ -4,12 +4,15 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.sportsapp.model.Athlete
+import com.example.sportsapp.model.Sport
 import com.example.sportsapp.model.User
 
-@Database(entities = [User::class],version = 1,exportSchema = false)
+@Database(entities = [User::class,Sport::class,Athlete::class],version = 1,exportSchema = false)
 
 abstract class UserDatabase:RoomDatabase(){
     abstract fun userDao():UserDao
+    abstract fun sportDao():SportDao
     companion object{
 
         @Volatile

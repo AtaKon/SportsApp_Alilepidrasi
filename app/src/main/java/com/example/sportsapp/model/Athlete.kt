@@ -5,12 +5,13 @@ import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 import java.util.*
 
-@Entity(foreignKeys = arrayOf(
-    ForeignKey(entity = Sport::class,
-    parentColumns = arrayOf("id"),
-    childColumns = arrayOf("sport_id"),
-    onDelete = ForeignKey.CASCADE)
-))
+//@Entity(foreignKeys = arrayOf(
+//    ForeignKey(entity = Sport::class,
+//    parentColumns = arrayOf("id"),
+//    childColumns = arrayOf("sport_id"),
+//    onDelete = ForeignKey.CASCADE)
+//))
+@Entity
 data class Athlete (
     @PrimaryKey(autoGenerate = true)
     val athlete_id:Int,
@@ -19,5 +20,5 @@ data class Athlete (
     val city:String,
     val country:String,
     val sport_id:Int,
-    val dateOfBirth:Date
+    val dateOfBirth:String
 )
